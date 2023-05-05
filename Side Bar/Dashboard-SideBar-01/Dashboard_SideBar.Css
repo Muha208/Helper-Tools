@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*----SideBar----*/
+    --SideBArWidth: 250px;
+    --SideBarClosedWidth: 86px;
+    --LogoWidth: 60px;
+    /*----Main Logo----*/
+    --Logo-width: 55px;
+
+    /*----Colors----*/
+    --Body-Color: #E4E9F7;
+    --SideBar-Color: #fff;
+    --Primary-Color: #695CFE;
+    --Primary-Color-Light: #F6F5FF;
+    --Toggle-Color: #695CFE;
+    --Text-Color: #707070;
+
+    /*----Transition----*/
+    --Trans-02: all 0.2s ease;
+    --Trans-03: all 0.3s ease;
+    --Trans-04: all 0.4s ease;
+    --Trans-05: all 0.5s ease;
+}
+body
+{
+    height: 100vh;
+    background: var(--Body-Color);
+    transition: var(--Trans-04);
+}
+/*----Dark Mode----*/
+body.dark
+{
+        /*----Colors----*/
+        --Body-Color: #18191A;
+        --SideBar-Color: #242526;
+        --Primary-Color: #CCC;
+        --Primary-Color-Light: #3A3B3C;
+        --Toggle-Color: #FFF;
+        --Text-Color: #CCC;
+}
+body.dark .switch::before
+{
+    left: 24px;
+}
+
+/*----Reusable Css----*/
+.sideBar .text
+{
+    transition: var(--Trans-02);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--Text-Color);
+    white-space: nowrap;
+    opacity: 1;
+}
+.sideBar .image
+{
+    min-width: var(--Logo-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*----SideBar Closed----*/
+.sideBar.close header .toggle
+{
+    transform: translateY(-50%);
+}
+.sideBar.close
+{
+    width: var(--SideBarClosedWidth);
+}
+.sideBar.close .text
+{
+    opacity: 0;
+}
+.sideBar.close .search-box
+{
+    cursor: pointer;
+}
+/*----SideBar----*/
+.sideBar
+{
+    transition: var(--Trans-05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--SideBArWidth);
+    padding: 10px 14px;
+    background: var(--SideBar-Color);
+    z-index: 100;
+}
+.sideBar .image-text img
+{
+    width:var(--Logo-width);
+    border-radius: 6px;
+}
+.sideBar .menu
+{
+    margin-top: 30px;
+}
+.sideBar header
+{
+    position: relative;
+}
+.sideBar header .image-text
+{
+    display: flex;
+    align-items: center;
+}
+.sideBar header .toggle
+{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--Primary-Color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--SideBar-Color);
+    font-size: 18px;
+    cursor: pointer;
+    transition: var(--Trans-05);
+}
+/*----SideBar Link----*/
+.sideBar li
+{
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 6px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.sideBar li .icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+.sideBar li .icon,
+.sideBar li .text
+{
+    color: var(--Text-Color);
+    transform: var(--Trans-05);
+}
+.sideBar li a
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transform: var(--Trans-05);
+}
+/*----SideBar Link Hover----*/
+.sideBar li a:hover
+{
+    background: var(--Primary-Color);
+}
+.sideBar li a:hover .icon,
+.sideBar li a:hover .text
+{
+    color: var(--SideBar-Color);
+}
+/*----SideBar Search Box----*/
+.search-box input,
+.sideBar .search-box
+{
+    background: var(--Primary-Color-Light);
+    transition: var(--Trans-03);
+}
+.search-box input
+{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--Text-Color);
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: var(--Trans-03);
+}
+/*----Header----*/
+header .image-text .header-text
+{
+    display: flex;
+    flex-direction: column;
+}
+.header-text .name
+{
+    padding-left: calc((var(--SideBArWidth) - var(--Logo-width) ) / 8) ;
+    font-weight: 600;
+}
+.header-text .fullname
+{
+    padding-left: calc((var(--SideBArWidth) - var(--Logo-width) ) / 8) ;
+    font-size: 12px;
+}
+.header-text .profession
+{
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: calc((var(--SideBArWidth) - var(--Logo-width) ) / 8) ;
+    margin-top: -2px;
+}
+/*----SideBar Menu Bar----*/
+.sideBar .menu-bar
+{
+    height: calc(100% - var(--Logo-width) - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*----Mode----*/
+.menu-bar .mode
+{
+    border-radius: 6px;
+    position: relative;
+    background: var(--Primary-Color-Light);
+    transition: var(--Trans-05);
+}
+.menu-bar .mode .moon-sun
+{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+.menu-bar .mode i
+{
+    transition: var(--Trans-05);
+    position: absolute;
+}
+.menu-bar .mode i.sun
+{
+    opacity: 0;
+}
+body.dark .menu-bar .mode i.sun
+{
+    opacity: 1;
+}
+body.dark .menu-bar .mode i.moon
+{
+    opacity: 0;
+}
+.menu-bar .mode i.moon
+{
+    opacity: 1;
+}
+.menu-bar .mode .toggle-switch
+{
+    background: var(--Primary-Color-Light);
+    right: 0px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 6px;
+    min-width: 60px;
+    cursor: pointer;
+    transition: var(--Trans-05);
+}
+.menu-bar .mode .text
+{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.toggle-switch .switch
+{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--Toggle-Color);
+    transition: var(--Trans-05);
+}
+.switch::before
+{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--SideBar-Color);
+    cursor: pointer;
+    transition: var(--Trans-05);
+}
+/*--- Main Home Page---*/
+.home .text
+{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--Text-Color);
+    padding: 8px 50px;
+}
+.home
+{
+    position: relative;
+    left: var(--SideBArWidth);
+    height: 100vh;
+    width: calc(100% - var(--SideBArWidth));
+    transition: var(--Trans-05);
+    background: var(--Body-Color);
+}
+.sideBar.close ~ .home
+{
+    left: 88px;
+    height: 100vh;
+    width: calc(100% - 88px);
+}

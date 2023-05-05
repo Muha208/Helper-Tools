@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*---Background---*/
+    --Clr: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
+    /*----Circle Colors----*/
+    --Circle-1-Color: rgb(27, 64, 128);
+    --Circle-2-Color: rgb(108, 16, 16);
+    --Circle-3-Color: black;
+    /*----Fonts----*/
+    --StarsAndColorFontSize: 18px;
+    /*----Transition----*/
+    --ProCardHoverColor_Tra03: color 0.3 ease;
+    /*----Logo Image----*/
+    --LogoWidth: 60px;
+    /*----Prouduct Card----*/
+    --ProCardMinWidth: 355px;
+    --ProRaduis: 25px;
+    --ProColor: #707070;
+    --PrNameColor: #161616;
+    --ProBackgroudColor: #fff;
+    /*----Prouduct Card Hover----*/
+    --ProColor_Hover: #333;
+    /*----Prouduct Images----*/
+    --ProImageWidth: 300px;
+    --ProRotateImage: rotate(0deg);
+    --ShadowColor:rgb(0, 0, 0 , 0.2);
+    /*----Prouduct Stars----*/
+    --ProStarsColor: #FFDF00;
+    /*----Price Color----*/
+    --PriceColor: #118c4f;
+    /*---Button---*/
+    --BtHeight: 50px;
+    --Btwidth: 100%;
+    --FontColor:var(--ProBackgroudColor);
+    /*---For Calc---*/
+    --Padding-LeftAndRight: 60px;
+    --MarginColor-Price: 30px;
+    --CardWidth:calc(var(--ProImageWidth) + var(--MarginColor-Price) + var(--Padding-LeftAndRight));
+}
+body.dark
+{
+    /*---Background---*/
+    --Clr: #18191A;
+    /*----Prouduct Card----*/ 
+    --ProColor: #a09d9d;
+    --PrNameColor: #fff;
+    --ProBackgroudColor: #3A3B3C;
+    --ProColor_Hover: #fff;
+    /*----Prouduct Stars----*/
+    --ProStarsColor: #FFDF00;
+    /*----Price Color----*/
+    --PriceColor: #118c4f;
+    /*----Prouduct Images----*/
+    --ShadowColor:rgba(119, 113, 113, 0.2);
+}
+.product-card
+{
+    background: var(--ProBackgroudColor);
+    position: relative;
+    z-index: 3;
+    min-width: var(--ProCardMinWidth);
+    width: var(--CardWidth);
+    border-radius: var(--ProRaduis);
+    padding: 20px 30px 30px 30px;
+    box-shadow: 0 5px 10px var(--ShadowColor);
+    overflow: hidden;
+}
+.product-card .logo-cart
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.product-card .logo-cart img
+{
+    width: var(--LogoWidth);
+}
+.product-card .logo-cart i
+{
+    font-size: calc(var(--LogoWidth) / 1.8);
+    color: var(--ProColor);
+    transition: var(--ProCardHoverColor_Tra03);
+    cursor: pointer;
+}
+.product-card .logo-cart i:hover
+{
+    color: var(--ProColor_Hover);
+}
+.product-card .main-images
+{
+    position: relative;
+    height: calc(var(--ProImageWidth) + var(--ProRaduis) *2);
+}
+.product-card .main-images img
+{
+    position: absolute;
+    width: calc(var(--CardWidth) - var(--Padding-LeftAndRight));
+    height: var(--ProImageWidth);
+    transform: var(--ProRotateImage);
+    top: var(--ProRaduis);
+    z-index: -1;
+    border-radius: var(--ProRaduis);
+    box-shadow: 0 5px 10px rgb(0.2 , 0.2, 0.2 , 0.2);
+    opacity: 0;
+    transition: var(--ProCardHoverColor_Tra03);
+}
+.product-card .main-images img:hover
+{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.product-card .main-images img.active
+{
+    opacity: 1;
+}
+.product-card .product-details p
+{
+    font-size: var(--ProRaduis) / 2;
+    font-weight: 400;
+    color: var(--ProColor_Hover);
+    text-align:left;
+}
+.product-card .product-details .product-name
+{
+    font-size: var(--ProRaduis);
+    font-weight: 500;
+    color:var(--PrNameColor) ;
+}
+/*---Stars Shape---*/
+.product-card .product-details .stars i
+{
+    font-size: var(--StarsAndColorFontSize);
+    margin: 5px -1px;
+    color: var(--ProStarsColor);
+}
+.product-card .color-price .color-option
+{
+    display: flex;
+    align-items: center;
+}
+.product-card .color-price .color-option .color
+{
+    font-size: var(--StarsAndColorFontSize);
+    font-weight: 500;
+    color:var(--ProColor_Hover) ;
+    margin-right: 8px;
+}
+/*---Circle Shape---*/
+.color-option .circles
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-card .color-price .color-option .circle
+{
+    height: var(--StarsAndColorFontSize);
+    width: var(--StarsAndColorFontSize);
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: all 0.4 ease;
+}
+/*---Foreach Color Circle---*/
+.product-card .color-price .color-option .circle.c1
+{
+    background: var(--Circle-1-Color);
+}
+.product-card .color-price .color-option .circle.c2
+{
+    background: var(--Circle-2-Color);
+}
+.product-card .color-price .color-option .circle.c3
+{
+    background: var(--Circle-3-Color);
+}
+/*---Foreach Color Circle __Active__---*/
+.product-card .color-price .circle.c1.active
+{
+    box-shadow: 0 0 0 2px var(--ProBackgroudColor),
+    0 0 0 4px var(--Circle-1-Color);
+}
+.product-card .color-price .circle.c2.active
+{
+    box-shadow: 0 0 0 2px var(--ProBackgroudColor),
+    0 0 0 4px var(--Circle-2-Color);
+}
+.product-card .color-price .circle.c3.active
+{
+    box-shadow: 0 0 0 2px var(--ProBackgroudColor),
+    0 0 0 4px var(--Circle-3-Color);
+}
+/*---Price---*/
+.color-price
+{
+    display: flex;
+    justify-content: center;
+}
+.color-price .price
+{
+    display: flex;
+    flex-direction: column;
+}
+.color-price .price .price-num
+{
+    margin-left: var(--MarginColor-Price);
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--PriceColor);
+}
+.color-price .price .price-letter
+{
+    margin-left: 25px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: -4px;
+    color: var(--PriceColor);
+}
+.product-card .bt_AddCart
+{
+    margin-top: var(--MarginColor-Price);
+    height: var(--BtHeight);
+    width: var(--Btwidth);
+    position: relative;
+    background: var(--BtBackgroundcolor);
+    border-radius: var(--ProRaduis);
+    overflow: hidden;
+}
+.product-card .bt_AddCart .bt_layer
+{
+    position: absolute;
+    height: 100%;
+    width: 300%;
+    left: -70%;
+    background: var(--Clr);
+    transition: all 0.4 easeS;
+    border-radius: var(--ProRaduis);
+}
+.product-card .bt_AddCart:hover .bt_layer
+{
+    left: 0;
+}
+.product-card .bt_AddCart button
+{
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: var(--StarsAndColorFontSize);
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--FontColor);
+    cursor: pointer;
+}

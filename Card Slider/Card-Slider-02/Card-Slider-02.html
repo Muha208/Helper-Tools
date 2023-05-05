@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Cards/Product-Card-03/Product-Card-03.css">
+    <link rel="stylesheet" href="Card-Slider-02.css">
+    <title>Card-Slider-02</title>
+</head>
+<body>
+    <div class="sliderbody">
+        <div class="container">
+
+            <input type="radio" name="slider" id="s1" >
+            <input type="radio" name="slider" id="s2" checked>
+            <input type="radio" name="slider" id="s3">
+            <input type="radio" name="slider" id="s4">
+            <input type="radio" name="slider" id="s5">
+    
+                <div class="cards">
+                        <!--Any Card Here-->
+                        <label for="s1" id="slide1" include-html="../../Cards/Product-Card-03/Product-Card-03.html"></label>
+                        <label for="s2" id="slide2" include-html="../../Cards/Product-Card-03/Product-Card-03.html"></label>
+                        <label for="s3" id="slide3" include-html="../../Cards/Product-Card-03/Product-Card-03.html"></label>
+                        <label for="s4" id="slide4" include-html="../../Cards/Product-Card-03/Product-Card-03.html"></label>
+                        <label for="s5" id="slide5" include-html="../../Cards/Product-Card-03/Product-Card-03.html"></label>
+                </div>
+        </div>
+    </div>
+
+
+    <script src="Card-Slider-02.js"></script>
+    <script src="../../Cards/Product-Card-03/Product-Card-03.js"></script>
+    <script>
+        includeHTML();
+        </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*---Colors---*/
+    --CardColor: #323444;
+    --ImageShadow: 15px 15px 40px rgba(0,0,0, 50%);
+    /*---Background---*/
+    --clr:#f4f4f4;
+    /*---Product Card---*/
+    --CardHeight: calc(var(--IconsSize) + var(--StarsSize) * 2 + var(--ImageWidth) + var(--CardBorderRadius) * 6 + var(--CardPadding) *3 + var(--ProdDetailsHeight));
+    --CardWidth:  470px;
+    --CardBorderRadius: 25px;
+    --CardHZPadding: 15px;
+    --CardPadding: var(--CardHZPadding);
+    /*---Image---*/
+    --ImageWidth: calc((var(--CardWidth) - var(--CardBorderRadius) * 2 - var(--CardHZPadding) *2 ));
+    /*---product-details*/
+    --DFontColor:#b1b1b1;
+    --ProdDetailsHeight:calc(var(--DotsHeightWidth)  +var(--CardBorderRadius)*2 + var(--StarsSize)* 4 + var(--CardPadding) *8 + var(--IconsSize) *2);
+    /*----Prouduct Stars----*/
+    --ProStarsColor: #FFDF00;
+    --StarsSize: 20px;
+    /*----Icons----*/
+    --IconsColor: var(--clr);
+    --IconsSize: calc(var(--StarsSize) * 1.7);
+    /*----Dots----*/
+    --DotsHeightWidth: 10px;
+    /*----Price Color----*/
+    --PriceColor: #118c4f;
+    /*---Button---*/
+    --BtHeight: 60px;
+    --Btwidth:  calc((var(--CardWidth) - var(--CardBorderRadius) *3 ));
+    --FontColor:var(--clr);
+        /*----Circle Colors----*/
+        --Circle-1-Color: rgb(27, 64, 128);
+        --Circle-2-Color: rgb(108, 16, 16);
+        --Circle-3-Color: black;
+        /*----Bt Hover--*/
+        --BtHover: rgb(34, 34, 34);
+}
+a
+{
+    text-decoration: none;
+}
+.product-card
+{
+    position: relative;
+    height: var(--CardHeight);
+    width: var(--CardWidth);
+    background-color: var(--CardColor);
+    border-radius: var(--CardBorderRadius);
+    padding: var(--CardPadding);
+    overflow: hidden;
+}
+.product-card .main-images
+{
+    position: relative;
+    height: calc(var(--ImageWidth) + var(--CardPadding) + var(--CardBorderRadius)*2);
+}
+.product-card .main-images img
+{
+    border-radius: var(--CardBorderRadius);
+    box-shadow: var(--ImageShadow);
+    margin: var(--CardBorderRadius);
+    width: var(--ImageWidth);
+    object-fit: cover;
+    opacity: 0;
+    transition: all .7s;
+    position: absolute;
+}
+.product-card .main-images img:hover
+{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.product-card .main-images img.active
+{
+    opacity: 1;
+}
+.product-details
+{
+    height: var(--ProdDetailsHeight) ;
+    margin: 0  var(--CardBorderRadius) ;
+}
+.product-details .product-name
+{
+    font-size: var(--CardBorderRadius);
+    font-weight: 500;
+    color: var(--clr);
+} 
+.product-details p
+{
+    font-size: calc(var(--CardPadding)* 1.2);
+    font-weight: 300;
+    color: var(--FontColor);
+    margin: var(--CardHZPadding) 0;
+} 
+.product-details .details
+{
+    font-size: calc(var(--CardPadding)* 1.3);
+    font-weight: 300;
+    color: var(--DFontColor);
+    cursor: pointer;
+}
+.product-details .details:hover
+{
+    font-size: calc(var(--CardPadding)* 1.4);
+    color: var(--ProStarsColor);
+}
+.stars
+{
+    margin-top: var(--StarsSize);
+    color: var(--ProStarsColor);
+    font-size: var(--StarsSize);
+}
+.icons
+{
+    padding: 0 calc(var(--CardBorderRadius) + var(--CardPadding));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--IconsColor);
+    font-size: var(--IconsSize);
+}
+.icons i
+{
+    margin-top: var(--CardBorderRadius);
+    cursor: pointer;
+}
+.icons i:hover
+{
+    transform: scale(1.1);
+    color: var(--ProStarsColor);
+}
+.product-card .main-images .dots
+{
+    text-align: center;
+}
+.dots div
+{
+    width: var(--DotsHeightWidth);
+    height: var(--DotsHeightWidth);
+}
+.color-price .price
+{
+    display: flex;
+    flex-direction: column;
+}
+.product-card .color-price .color-option
+{
+    margin: 30px -40px var(--CardBorderRadius) var(--CardBorderRadius) ;
+    display: flex;
+    align-items: center;
+}
+.color-price .price .price-num
+{
+    margin-left: calc(var(--CardBorderRadius) * 2);
+    font-size: var(--IconsSize);
+    font-weight: 600;
+    color: var(--PriceColor);
+}
+.color-price .price .price-letter
+{
+    margin:-3px  calc(var(--CardPadding)) 0 calc(var(--CardBorderRadius) * 2);
+    font-size: calc(var(--StarsSize) /1.5);
+    font-weight: 600;
+    margin-top: -2px;
+    color: var(--PriceColor);
+}
+
+/*---Circle Shape---*/
+.color-price
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color-option .circles
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-card .color-price .color-option .color
+{
+    font-size: var(--StarsSize);
+    font-weight: 400;
+    color: var(--clr);
+    margin-right: 40px;
+}
+.product-card .color-price .color-option .circle
+{
+    height: var(--StarsSize);
+    width: var(--StarsSize);
+    border-radius: 50%;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: all 0.4 ease;
+}
+/*---Foreach Color Circle---*/
+.product-card .color-price .color-option .circle.c1
+{
+    transform: scale(1.1);
+    background: var(--Circle-1-Color);
+}
+.product-card .color-price .color-option .circle.c2
+{
+    transform: scale(1.1);
+    background: var(--Circle-2-Color);
+}
+.product-card .color-price .color-option .circle.c3
+{
+    transform: scale(1.1);
+    background: var(--Circle-3-Color);
+}
+/*---Foreach Color Circle __Active__---*/
+.product-card .color-price .circle.c1.active
+{
+    box-shadow: 0 0 0 2px var(--CardColor),
+    0 0 0 4px var(--Circle-1-Color);
+}
+.product-card .color-price .circle.c2.active
+{
+    box-shadow: 0 0 0 2px var(--CardColor),
+    0 0 0 4px var(--Circle-2-Color);
+}
+.product-card .color-price .circle.c3.active
+{
+    box-shadow: 0 0 0 2px var(--CardColor),
+    0 0 0 4px var(--Circle-3-Color);
+}

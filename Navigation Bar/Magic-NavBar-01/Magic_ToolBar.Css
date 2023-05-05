@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*Main Transition*/
+    --MainTrans: 0.5s;
+    /*Backround Color*/
+    --clr: #222327;
+    /*Navigation Style*/
+    --navWidth: 400px;
+    --navHeight: 70px;
+    --navColor: #fff;
+    /*Ul Navigation Style*/
+    --ulNavigationWidth:var(--navWidth) - 50px;
+    /*Il Ul Navigation Style*/
+    --iLULNavigationSpace_Width: 70px;
+    --iLULNavigation_Height: 70px;
+    --fontweight:500;
+    /*Icon Il Ul Navigation Style*/
+    --fontSize_IconSymbol:2em;
+    /*Text Il Ul Navigation Style*/
+    --fontweight_Text:400;
+    /*idicator (Hover) Il Ul Navigation Style*/
+    --HoverColor:#29fd53;
+    --TopTrans:-50%;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--clr)
+}
+.navigation
+{
+    width: var(--navWidth);
+    height: var(--navHeight);
+    background: var(--navColor);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.navigation ul
+{
+display: flex;
+width: var(--ulNavigationWidth);
+}
+.navigation ul li
+{
+    position: relative;
+    list-style: none;
+    width: var(--iLULNavigationSpace_Width);
+    height: var(--iLULNavigation_Height);
+    z-index: 1;
+}
+.navigation ul li a
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: var(--fontweight);
+}
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: var(--fontSize_IconSymbol);
+    text-align: center;
+    transition: var(--MainTrans);
+    color: var(--clr);
+}
+.navigation ul li.active a .icon
+{
+    transform:translateY(-32px);
+}
+.navigation ul li a .text
+{
+    position: absolute;
+    color: var(--clr);
+    font-weight: var(--fontweight_Text);
+    font-size: 1em;
+    letter-spacing: .05em;
+    transition: var(--MainTrans);
+    opacity: 0;
+    transform:translateY(20px);
+}
+.navigation ul li.active a .text
+{
+    opacity: 1;
+    transform:translateY(10px);
+}
+.indicator
+{
+    position: absolute;
+    top:var(--TopTrans) ;
+    width: var(--iLULNavigationSpace_Width);
+    height: var(--iLULNavigation_Height);
+    background: var(--HoverColor);
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition:var(--MainTrans) ;
+}
+.indicator::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+.indicator::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+}
+/*Repeated According The Number Of Items inside ToolBar*/
+.navigation ul li:nth-child(1).active ~ .indicator
+{
+    transform: translateX(calc(var(--iLULNavigationSpace_Width) * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+    transform: translateX(calc(var(--iLULNavigationSpace_Width) * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+    transform: translateX(calc(var(--iLULNavigationSpace_Width) * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator
+{
+    transform: translateX(calc(var(--iLULNavigationSpace_Width) * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator
+{
+    transform: translateX(calc(var(--iLULNavigationSpace_Width) * 4));
+}

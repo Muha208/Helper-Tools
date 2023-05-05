@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*---Background---*/
+    --clr:#f4f4f4;
+    /*---Slider---*/
+    --SliderHeight: 35em;
+}
+.sliderbody
+{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--clr);
+}
+.sliderbody .swiper
+{
+    width: 100%;
+}
+.sliderbody .swiper-wrapper
+{
+    width: 100%;
+    height: var(--SliderHeight);
+    display: flex;
+    align-items: center;
+}
+.sliderbody .swiper-slide:not(.swiper-slide-active)
+{
+    filter: blur(1px);
+}

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+*
+{
+    margin: s;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; 
+}
+:root
+{
+    /*---Colors---*/
+    --clr:var(--CardBackColor);
+    --CardBackColor: #fff;
+    --CardShadow: 0 0 2em rgb(0,0,0,0.2);
+    --ImageBorder: #9176ff;
+    --ProNameColor: var(--ImageBorder);
+    --BtColor: var(--ImageBorder);
+    /*---Card---*/
+    --CardHeight: 90%;
+    --CardWidth: 30em;
+    --CardBorderRaduis: 2em;
+    /*---Image---*/
+    --ImageBorderRaduis: 50%;
+    /*---Product Details---*/
+    --ProductTitelFont: 1.5em;
+    --ProDetailsFont: 1.1em;
+    /*---Button---*/
+    --Btborderradius: .5em;
+        /*----Icons----*/
+        --IconsColor: var(--clr);
+        --IconsSize: 50px;
+}
+.product-card
+{
+    width: var(--CardWidth);
+    height: var(--CardHeight);
+    background-color: var(--CardBackColor);
+    border-radius: var(--CardBorderRaduis);
+    box-shadow: var(--CardShadow);
+    padding: 2em 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 2em;
+}
+.main-images
+{
+    width: calc(var(--CardWidth) / 2);
+    height: calc(var(--CardWidth) / 2);
+    border-radius: var(--ImageBorderRaduis);
+    border: 5px solid var(--ImageBorder);
+    padding: 3px;
+    margin-bottom: 2em;
+}
+.main-images img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--ImageBorderRaduis);
+    object-fit: cover;
+    cursor: pointer;
+}
+.product-card .main-images img:hover
+{
+    transform: scale(1.05);
+    border: 3px solid var(--ImageBorder);
+    padding: 5px;
+}
+.product-details
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.product-title
+{
+    font-size: var(--ProductTitelFont);
+    font-weight: 500;
+    position: relative;
+    top: .2em;
+}
+.product-name
+{
+    color: var(--ProNameColor);
+}
+.product-details p
+{
+    text-align: center;
+    font-size: var(--ProDetailsFont);
+    margin: 1em 0;
+}
+.bt_AddCart button
+{
+    background: var(--BtColor);
+    color: var(--CardBackColor);
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    text-transform: uppercase;
+    padding: .5em;
+    border-radius: var(--Btborderradius);
+    margin-top: var(--Btborderradius);
+    cursor: pointer;
+}
+.icons svg
+{
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    margin: var(--ProDetailsFont);
+    cursor: pointer;
+}
+.icons svg:hover
+{
+    transform: scale(1.1);
+}
+.icons .bi
+{
+    height: var(--IconsSize);
+}
